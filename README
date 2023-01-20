@@ -1,0 +1,48 @@
+Compile the Zoltan libray (v3.6 or compatible version) in the
+$HOME/bin/Zoltan_v3.6/ folder.
+
+Place the following source code folders also in $HOME/bin/:
+
+analysator
+corsair
+pargrid
+rhybrid
+vlsv
+
+These are the following versions from repositories on
+https://github.com/fmihpc:
+
+analysator: 080dc7865b96c26a1daf3bce980b7d688c28f813
+corsair: 21c39e4363af22f128b52ebec618c5f6f2a6e450
+pargrid: f3d0c9ea45940905a5a47cf4d8008eeb83ec3bf7
+rhybrid: 952abf4af8c691e61d064ce051896c642de5ebed
+vlsv: d05335293ffe4c5f2e3147ad89b8e84b101f13ff
+
+Edit vlsv/Makefile* files as necessary for your system and compile the
+VLSV library:
+
+cd $HOME/bin/vlsv/
+make
+
+Place the RHybrid files under the Corsair directory tree:
+
+mkdir $HOME/bin/corsair/src/user/rhybrid/
+cp -p $HOME/bin/rhybrid/src/* $HOME/bin/corsair/src/user/rhybrid/
+
+Edit corsair/Makefile* files as necessary for your system and compile
+the Corsair platform:
+
+cd $HOME/bin/corsair/
+make
+
+Perform runs with mpirun or the batch job system:
+
+mkdir venus_solo_run_jgr_2023
+cd venus_solo_run_jgr_2023
+cp -p ../../run_cfg_files/venus.cfg ./
+mpirun -n 2 ../corsair_rhybrid --runconfig=venus.cfg
+
+You can use the Analysator Python tool to examine the output files and
+explained in $HOME/bin/analysator/Documentation/ or use the VisIt
+(https://wci.llnl.gov/simulation/computer-codes/visit/) software
+plugin on $HOME/bin/vlsv/visit-plugin/.

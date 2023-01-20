@@ -1,0 +1,31 @@
+# C++ compiler and flags
+CMP=mpic++
+CXXFLAGS=-O3 -Wall -std=c++0x -Wall -pedantic -DPROFILE -DNDEBUG
+MATHFLAGS=-ffast-math -funroll-loops
+
+# Archiver
+AR = ar
+
+# Linker and flags
+LNK=mpic++
+
+###### Library include and lib paths #####
+
+# Miscellaneous files:
+INC=
+
+# Boost
+INC_BOOST=-I/usr/include/boost
+LIB_BOOST=-L/usr/lib/ -lboost_program_options
+
+# ParGrid
+INC_PARGRID=-I/home/rijarvin/bin/corsair/pargrid/trunk
+LIB_PARGRID=
+
+# VLSV file format
+INC_VLSV=-I/home/rijarvin/bin/corsair/vlsv/trunk
+LIB_VLSV=-L/home/rijarvin/bin/corsair/vlsv/trunk -lvlsv
+
+# Zoltan
+INC_ZOLTAN=-I/home/rijarvin/bin/Zoltan_v3.6/build/include
+LIB_ZOLTAN=-L/home/rijarvin/bin/Zoltan_v3.6/build/lib -lzoltan

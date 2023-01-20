@@ -1,0 +1,20 @@
+##############################################
+### MAKEFILE FOR VLSV PARALLEL FILE FORMAT ###
+###                                        ###
+###    Make a copy of this file and edit   ###
+###     include and library paths below    ###
+##############################################
+
+# Compiler and its flags. Leave FLAGS empty, it is 
+# meant to use from make command line to override 
+# the values set here.
+CMP = mpic++
+CXXFLAGS = -O3 -std=c++0x -Wall
+FLAGS =
+
+# Archiver
+AR = ar
+
+# Include and library paths (edit these as necessary)
+INC_SILO=-I/home/rijarvin/bin/silo-4.8/include
+LIB_SILO=-L/home/rijarvin/bin/silo-4.8/lib -lsilo
